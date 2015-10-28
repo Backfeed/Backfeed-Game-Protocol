@@ -1,3 +1,5 @@
-/**
- * Created by yanivkeinan on 10/18/15.
- */
+var protocol = require('./protocol.js');
+module.exports = {
+    protoRate: protocol.rate,
+    protoEndTurn: protocol.endTurn
+};

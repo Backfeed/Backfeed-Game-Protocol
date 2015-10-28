@@ -1,7 +1,11 @@
-Meteor.methods({
-  protoRate: rate,
-  protoEndTurn: endTurn
-});
+var User = require('./user.js');
+var R = require('ramda');
+var F = require('./functional.js');
+var constants = require('./constants.js');
+module.exports = {
+  rate: rate,
+  endTurn: endTurn
+};
 
 function rate(uid, moveId, newStars) {
   var uStake = calcUserStake(uid);
@@ -47,7 +51,7 @@ function endTurn(gameId, turnIndex) {
     var evals = Evals.getList(m._id);
 
     var tokens = 0;
-    
+
     _.each(evals, function(eval) {
       tokens += STARS_TOKENS[eval.stars-1] * User.getRep(eval.uid);
     });

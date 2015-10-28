@@ -1,18 +1,32 @@
 {
-  "name": "Backfeed-Game-Protocol",
-  "version": "1.0.0",
+  "name": "backfeed-game-protocol",
+  "version": "0.0.1",
   "description": "A Backfeed Protocol for Turn Based Games",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha src/index.test.js -w",
+    "test:single": "mocha src/index.test.js"
   },
-  "repository":{
-    "type": "git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/backfeed/backfeed-game-protocol"
   },
-  "keywords":[
+  "keywords": [
     "backfeed",
     "protocol"
   ],
   "author": "Yaniv Keinan",
-  "license": "GPL"
+  "license": "GPL",
+  "dependencies": {
+    "lodash": "3.10.1",
+    "ramda": "0.18.0"
+  },
+  "devDependencies": {
+    "chai": "3.4.0",
+    "commitizen": "2.3.0",
+    "cz-conventional-changelog": "1.1.4",
+    "ghooks": "0.3.2",
+    "istanbul": "0.4.0",
+    "mocha": "2.3.3"
+  }
 }

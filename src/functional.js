@@ -1,3 +1,4 @@
+var R = require('ramda');
 F = (function() {
   /***************** PURE *****************/
   // toFixed :: Number, Number -> String
@@ -29,7 +30,7 @@ F = (function() {
 
   toBool = function(x) {
     return !!x;
-  }
+  };
 
   toPercent =  R.curry(function(divider, n) {
     return Math.round((n / divider) * 100);
@@ -39,7 +40,7 @@ F = (function() {
   // capitalize :: String -> String
   capitalize = function (string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+  };
 
   isActive = R.compose(toBool, R.prop('active'));
 
@@ -56,7 +57,7 @@ F = (function() {
   // getUserBy :: String -> Object
   getUserBy = function(uid) {
     return Meteor.users.findOne(uid);
-  } 
+  };
 
   // TODO :: Use _ or ramda for this
   mapFields = function(fields, bool) {
@@ -65,7 +66,7 @@ F = (function() {
       fieldsObj[field] = bool;
     });
     return fieldsObj;
-  }
+  };
 
   // getUsersBy :: Object / undefined -> [Object]
   getUsersBy = function(q, fields, bool) {
@@ -73,7 +74,7 @@ F = (function() {
     if (fields)
       fields = mapFields(fields, !bool);
     return Meteor.users.find(q, { fields: fields });
-  }
+  };
 
   mapUsersBy = R.map(getUserBy);
 
